@@ -2,7 +2,7 @@
 <table ng-controller="productListCtrl as vm">
     <thead>
     <tr>
-        <td>Image</td>
+        <td><button ng-click="vm.toggleImage()">{{ vm.showImage ? "Hide" : "Show"}} Image</button></td>
         <td>Product</td>
         <td>Code</td>
         <td>Available</td>
@@ -12,7 +12,7 @@
     <tbody>
     <tr ng-repeat="product in vm.products">
         <td>
-            <img ng-src="{{product.imageUrl}}" title="{{ product.productName }}"
+            <img ng-show="vm.showImage" ng-src="{{product.imageUrl}}" title="{{ product.productName }}"
                     style="width: 50px;margin: 2px">
         </td>
         <td>{{ product.productName }}</td>

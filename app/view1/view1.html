@@ -72,12 +72,13 @@
     <tbody>
     <tr ng-repeat="product in products">
         <td>
-            <img src="{{product.imageUrl}}" title="{{ product.productName }}">
+            <img ng-src="{{product.imageUrl}}" title="{{ product.productName }}"
+                    style="width: 50px;margin: 2px">
         </td>
         <td>{{ product.productName }}</td>
         <td>{{ product.productCode}}</td>
         <td>{{ product.releaseDate }}</td>
-        <td>{{ product.price }}</td>
+        <td>{{ product.price | currency}}</td>
     </tr>
     </tbody>
 

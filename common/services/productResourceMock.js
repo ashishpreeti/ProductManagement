@@ -1,14 +1,11 @@
 (function () {
     "use strict";
-    var module = angular.module("productManagement");
 
-    var productListCtrl = function () {
-        var vm = this;
-        //productResource.query(function(data) {
-        //    vm.products = data;
-        //});
+    var app = angular.module("productResourceMock",["ngMockE2E"]);
 
-        vm.products = [
+    app.run(function ($httpBackend) {
+
+        var products = [
             {     "productId": 1,
                 "productName": "Leaf Rake",
                 "productCode": "GDN-0011",
@@ -70,12 +67,10 @@
             }
         ];
 
-        vm.showImage = false;
 
-        vm.toggleImage = function () {
-            vm.showImage = !vm.showImage;
-        }
-    };
+        var productUrl = "api/products";
 
-    module.controller("productListCtrl",  productListCtrl);
+        $httpBackend.whenPOST(productUrl).respond(products);
+
+    });
 }());

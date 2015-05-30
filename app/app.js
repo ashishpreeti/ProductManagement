@@ -3,8 +3,8 @@
     angular.module('productManagement', [
         'ngRoute',
         'productManagement.view1',
-        'productManagement.view2',
-        'productManagement.version'
+        'productManagement.version',
+        'common.services',
     ]).
         config(['$routeProvider', function($routeProvider) {
             $routeProvider.otherwise({redirectTo: '/view1'});

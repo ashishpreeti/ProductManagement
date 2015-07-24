@@ -18,13 +18,39 @@
 <body ng-app="productManagement">
   <ul class="menu">
     <li><a href="#/view1">view1</a></li>
+      <!--<div ng-include="'view1/view1.html'"></div>-->
+    <div class="panel panel-primary">
+      <div class="panel-heading">Product List</div>
+
+      <div class="panel-body">
+        <table class="table" ng-controller="productListCtrl as vm">
+          <thead>
+          <tr>
+            <td><button class="btn btn-primary" ng-click="vm.toggleImage()">{{ vm.showImage ? "Hide" : "Show"}} Image</button></td>
+            <td>Product</td>
+            <td>Code</td>
+            <td>Available</td>
+            <td>Price</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="product in vm.products">
+            <td>
+              <img ng-if="vm.showImage" ng-src="{{product.imageUrl}}" title="{{ product.productName }}"
+                   style="width: 50px;margin: 2px">
+            </td>
+            <td>{{ product.productName }}</td>
+            <td>{{ product.productCode}}</td>
+            <td>{{ product.releaseDate }}</td>
+            <td>{{ product.price | currency}}</td>
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
   </ul>
-
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
-
-  <div ng-view></div>
 
   <div>Angular seed app: v<span app-version></span></div>
 
@@ -35,14 +61,19 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-mocks/angular-mocks.js"></script>
 
-  <!-- -->
-  <!-- -->
   <!-- Application Scripts -->
   <script src="app.js"></script>
-  <script src="products/productListCtrl.js"></script>
+
+  <!-- Services -->
   <script src="../common/services/common.services.js"></script>
-  <script src="view1/view1.js"></script>
+  <script src="../common/services/productResource.js"></script>
+  <script src="../common/services/productResourceMock.js"></script>
+
+  <!-- Product Controllers-->
+  <script src="products/productListCtrl.js"></script>
+
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>

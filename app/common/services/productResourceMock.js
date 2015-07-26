@@ -71,9 +71,9 @@
         var productUrl = "/api/products";
 
         var editingRegex = new RegExp(productUrl + "/[0-9][0-9]*", '')
+        $httpBackend.whenGET(productUrl).respond(products);
         $httpBackend.whenGET(editingRegex).respond(getMock);
         $httpBackend.whenGET(editingRegex).respond(postMock);
-        $httpBackend.whenGET(productUrl).respond(products);
 
         function getMock(method, url, data) {
             var product = {"productId": 0};

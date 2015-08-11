@@ -6,11 +6,14 @@
             "productResourceMock"
         ]);
 
-    app.config(["$stateProvider", function ($stateProvider) {
+    app.config(["$stateProvider",
+                "$urlRouterProvider",
+            function ($stateProvider, $urlRouterProvider) {
+                $urlRouterProvider.otherwise("/products");
             $stateProvider
                 .state("productList", {
                     url : "/products",
-                    templateUrl : "app/products/productListView.html",
+                    templateUrl : "../app/products/productListView.html",
                     controller : "productListCtrl as vm"
                 });
         }]

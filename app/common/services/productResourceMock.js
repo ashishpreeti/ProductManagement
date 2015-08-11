@@ -67,10 +67,8 @@
             }
         ];
 
-
         var productUrl = "/api/products";
-
-        var editingRegex = new RegExp(productUrl + "/[0-9][0-9]*", '')
+        var editingRegex = new RegExp(productUrl + "/[0-9][0-9]*", '');
         $httpBackend.whenGET(productUrl).respond(products);
         $httpBackend.whenGET(editingRegex).respond(getMock);
         $httpBackend.whenGET(editingRegex).respond(postMock);
@@ -107,15 +105,12 @@
                         break;
                     }
                 }
-
             }
             return [200, product,  {}];
         }
 
         //pass through any request for application files
         $httpBackend.whenGET(/app/).passThrough();
-
-
 
     });
 }());

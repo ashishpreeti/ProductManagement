@@ -7,16 +7,17 @@
         ]);
 
     app.config(["$stateProvider",
-                "$urlRouterProvider",
+            "$urlRouterProvider",
             function ($stateProvider, $urlRouterProvider) {
                 $urlRouterProvider.otherwise("/products");
-            $stateProvider
-                .state("productList", {
-                    url : "/products",
-                    templateUrl : "../app/products/productListView.html",
-                    controller : "productListCtrl as vm"
-                });
-        }]
+
+                $stateProvider
+                    .state("productList", {
+                        url : "/products",
+                        templateUrl : "app/products/productListView.html",
+                        controller : "productListCtrl as vm"
+                    });
+            }]
     )
 
 }());

@@ -12,7 +12,7 @@
 
         vm.toggleImage = function () {
             vm.showImage = !vm.showImage;
-        }
+        };
     };
 
     module.controller("productListCtrl",  ["productResource", productListCtrl]);

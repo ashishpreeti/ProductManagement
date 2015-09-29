@@ -18,7 +18,7 @@
             sum += this.cities[i][1];
         }
         return sum;
-    }
+    };
 
     var twister = new Tornado(cities, '34mph', 'F23');
     cities.push(["London", 2000]);

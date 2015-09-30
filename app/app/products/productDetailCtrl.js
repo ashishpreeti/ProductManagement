@@ -5,6 +5,7 @@
         .controller("productDetailCtrl", ["product", productDetailCtrl]);
 
     function productDetailCtrl(product) {
+        /*jshint -W040*/
         var vm = this;
 
         vm.product = product;

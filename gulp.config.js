@@ -1,11 +1,9 @@
+"use strict";
+
 module.exports = function () {
-    var client = "./app/";
     return {
 
-
-        temp : [
-            './tmp'
-        ],
+        temp : '.tmp',
 
         less : [
             './app/styles/styles.less'
@@ -13,6 +11,13 @@ module.exports = function () {
 
         alljs : [
             './app/app/**/*.js'
-        ]
+        ],
+
+        port : 9080,
+        devBaseUrl : "http://localhost",
+        paths : {
+            html : './app/**/*.html',
+            dist : './dist'
+        }
     };
 };

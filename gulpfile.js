@@ -2,9 +2,33 @@
 
 var gulp = require("gulp"),
     connect = require("gulp-connect"),
+    open = require("gulp-open"),
     args = require("yargs").argv,
     config = require("./gulp.config")(),
     $ = require("gulp-load-plugins")({lazy : true});
+
+var browserSync = require('browser-sync').create();
+
+// Static server
+gulp.task('live', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+
+    gulp.watch("./*.html").on('change', browserSync.reload);
+});
+
+gulp.task('serve',  function() {
+
+    browserSync.init({
+        server: "./app"
+    });
+
+    gulp.watch("./app/*.html").on('change', browserSync.reload);
+});
+
 
 gulp.task("vet", function () {
     log("Analysing code with jshint and JSCS");
@@ -49,13 +73,34 @@ gulp.task("html", function () {
     gulp.src(config.paths.html)
         .pipe(gulp.dest(config.paths.dist))
         .pipe(connect.reload());
-
 });
 
-gulp.task("default", ["html", "open"], function () {
+//gulp.task("js", function () {
+//    log("js bundling - moves src js to dist folder");
+//    gulp.src(config.paths.js)
+//        .pipe(gulp.dest(config.paths.dist))
+//        .pipe(connect.reload());
+//
+//});
+
+
+gulp.task("default", ["live"], function () {
     log("default - using command 'gulp' will run all the listed tasks");
 
 });
+
+//gulp.task("wiredep", function () {
+//    log("wiredep injects the custom css, js and bower dependencies in the html");
+//    var options = config.getWiredepDefaultOptions();
+//    var wiredep = require('wiredep').stream;
+//
+//    return gulp
+//        .src(config.index)
+//        .pipe(wiredep(options))
+//        .pipe($.inject(gulp.src(config.js)))
+//        .pipe(gulp.dest(config.paths.dist));
+//});
+
 
 function log(msg) {
     $.util.log($.util.colors.blue(msg));

@@ -1,3 +1,4 @@
+//This is a comment for git
 (function () {
     "use strict";
     var app = angular.module("productManagement",

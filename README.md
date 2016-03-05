@@ -1,3 +1,4 @@
+Adding one line in master. This should merge with develop when I merge.
 Demo for GIT 
 
 # angular-seed — the seed for AngularJS apps

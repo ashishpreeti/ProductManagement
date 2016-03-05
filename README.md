@@ -1,3 +1,15 @@
+To push the local branch to other 
+git push origin <branch>
+
+To pull changes for master
+git pull origin master
+
+To pull changes from other branches
+git pull origin <branch>
+
+
+
+
 add in develop
 Adding one line in master. This should merge with develop when I merge.
 Demo for GIT 

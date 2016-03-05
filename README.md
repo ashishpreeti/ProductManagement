@@ -1,3 +1,17 @@
+Changes after applying patch
+
+To push the local branch to other 
+git push origin <branch>
+
+To pull changes for master
+git pull origin master
+
+To pull changes from other branches
+git pull origin <branch>
+
+
+
+
 
 
 :w

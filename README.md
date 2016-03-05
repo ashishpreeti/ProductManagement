@@ -1,3 +1,6 @@
+
+
+:w
 Modify develop
 To push the local branch to other 
 git push origin <branch>

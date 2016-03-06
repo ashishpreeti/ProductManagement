@@ -1,4 +1,7 @@
 ONe change to the develop:wq
+Changes after applying patch
+
+Modify develop
 To push the local branch to other 
 git push origin <branch>
 
